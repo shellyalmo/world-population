@@ -1,0 +1,5 @@
+class Populations {
+  constructor() {
+    countries;
+  }
+}

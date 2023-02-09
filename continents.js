@@ -31,10 +31,12 @@ class Countries {
   }
   //arrow function to bind this to countries class and not the btn
   displayCountries = async (e) => {
-    const allCountries = await continents.getCountriesByContinent(
-      e.target.innerText
+    const continentName = e.target.innerText;
+    const allCountriesInContinent = await continents.getCountriesByContinent(
+      continentName
     );
-    this.renderCountries(allCountries);
+    this[continentName] = allCountriesInContinent;
+    this.renderCountries(allCountriesInContinent);
   };
 }
 
