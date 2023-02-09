@@ -1,0 +1,7 @@
+.continents {
+  display: flex;
+  justify-content: space-between;
+}
+.continent {
+  border: 1px solid blue;
+}
