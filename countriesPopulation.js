@@ -23,8 +23,9 @@ class Populations {
     if (!this.chart) {
       this.createGraph();
     } else {
-      this.chart.destroy();
-      this.createGraph();
+      this.chart.data.labels = this.names;
+      this.chart.data.datasets[0].data = this.populations;
+      this.chart.update();
     }
   }
 
