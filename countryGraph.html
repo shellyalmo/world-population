@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./countriesPopulation.js"></script>
+    <script defer src="./graphByCountry.js"></script>
+    <title>Country Graph</title>
+  </head>
+  <body>
+    <div class="top-page">
+      <h1>Country:</h1>
+      <div class="spinner"></div>
+    </div>
+    <div class="continents">
+      <!-- make a -->
+      <button id="africa-btn" class="continent">Africa</button>
+      <button id="americas-btn" class="continent">Americas</button>
+      <button id="asia-btn" class="continent">Asia</button>
+      <button id="europe-btn" class="continent">Europe</button>
+      <button id="oceania-btn" class="continent">Oceania</button>
+    </div>
+    <div class="graph-container">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </body>
+</html>

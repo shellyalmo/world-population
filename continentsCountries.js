@@ -17,7 +17,9 @@ class Continents {
       spinner.style.display = "none";
 
       return countriesArray;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -29,7 +31,14 @@ class Countries {
     this.countryContainer.innerHTML = "";
     this.currentContinent.map((country) => {
       const countryDiv = document.createElement("button");
-      countryDiv.innerText = country.name;
+      const countryLink = document.createElement("a");
+      countryDiv.appendChild(countryLink);
+      countryLink.innerText = country.name;
+      countryLink.setAttribute(
+        "href",
+        `./countryGraph.html?country=${country.name}`
+      );
+      countryLink.classList.add("country-link");
       this.countryContainer.appendChild(countryDiv);
     });
   }

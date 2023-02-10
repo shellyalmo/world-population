@@ -28,6 +28,7 @@ class Populations {
       this.chart.update();
     }
   }
+  updateCitiesGraph() {}
 
   createGraph() {
     const ctx = document.getElementById("myChart");
