@@ -21,9 +21,9 @@ class Countries {
   constructor() {
     this.countryContainer = document.querySelector(".countries-container");
   }
-  renderCountries(countriesArray) {
+  renderCountries() {
     this.countryContainer.innerHTML = "";
-    countriesArray.map((country) => {
+    this.currentContinent.map((country) => {
       const countryDiv = document.createElement("button");
       countryDiv.innerText = country.name;
       this.countryContainer.appendChild(countryDiv);
@@ -31,13 +31,26 @@ class Countries {
   }
   //arrow function to bind this to countries class and not the btn
   displayCountries = async (e) => {
-    const continentName = e.target.innerText;
+    //class variable
+    this.continentName = e.target.innerText;
     const allCountriesInContinent = await continents.getCountriesByContinent(
-      continentName
+      this.continentName
     );
-    this[continentName] = allCountriesInContinent;
-    this.renderCountries(allCountriesInContinent);
+    // array of objects of countries in the continent
+    this.currentContinent = allCountriesInContinent;
+
+    this.renderCountries();
+    this.renderPopulationsGraph();
   };
+
+  renderPopulationsGraph() {
+    //new instance of population class
+    if (!this.population) {
+      //the constructor of Population class creates the graph
+      this.population = new Populations();
+    }
+    this.population.updateGraph(this.currentContinent);
+  }
 }
 
 const countries = new Countries();
