@@ -8,10 +8,14 @@ class Continents {
   }
   async getCountriesByContinent(continentName) {
     try {
+      const spinner = document.querySelector(".spinner");
+      spinner.style.display = "block";
       const response = await fetch(
         `https://restcountries.com/v2/region/${continentName}`
       );
       const countriesArray = await response.json();
+      spinner.style.display = "none";
+
       return countriesArray;
     } catch (error) {}
   }

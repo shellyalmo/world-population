@@ -1,7 +1,29 @@
+.top-page {
+  display: flex;
+  justify-content: center;
+}
 .continents {
   display: flex;
   justify-content: space-between;
 }
 .continent {
   border: 1px solid blue;
+}
+
+.spinner {
+  border: 2px solid rgb(255, 255, 255);
+  border-top: 2px solid rgb(14, 67, 29);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: none;
+  animation: spin2 1s linear infinite;
+}
+@keyframes spin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
