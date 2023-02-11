@@ -1,7 +1,7 @@
 // get country from search url
 let urlString = window.location.search;
 let countryName = urlString.slice(9, urlString.length);
-document.querySelector("#country-name").innerText = `${countryName}`;
+document.querySelector("#country-name").innerText = decodeURI(countryName);
 // fetch cities population
 async function getCitiesPerCountry(countryName) {
   const spinner = document.querySelector(".spinner");

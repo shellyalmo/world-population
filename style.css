@@ -1,3 +1,41 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  /* The default font size of the browser is 16px, so if we want 1rem to be equal to 10px, we divide 10px by 16px = 62.5% */
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 1rem;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+}
+
 .top-page {
   display: flex;
   justify-content: center;
@@ -7,9 +45,17 @@
   justify-content: space-between;
 }
 .continent {
-  border: 1px solid blue;
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 3rem 0;
+  padding: 1rem;
 }
-
+.country-div {
+  margin: 0.5rem;
+}
+.country-link {
+  margin: 1rem;
+}
 .spinner {
   border: 2px solid rgb(255, 255, 255);
   border-top: 2px solid rgb(14, 67, 29);

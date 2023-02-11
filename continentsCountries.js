@@ -38,6 +38,7 @@ class Countries {
         "href",
         `./countryGraph.html?country=${country.name}`
       );
+      countryDiv.classList.add("country-div");
       countryLink.classList.add("country-link");
       this.countryContainer.appendChild(countryDiv);
     });

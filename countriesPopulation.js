@@ -82,14 +82,32 @@ class Populations {
   createGraphContinent() {
     const ctx = document.getElementById("myChart");
 
+    // add background image to canvas
+    const image = new Image();
+    image.src = "./assets/world-map.jpg";
+    const plugin = {
+      id: "customCanvasBackgroundImage",
+      beforeDraw: (chart) => {
+        if (image.complete) {
+          const ctx = chart.ctx;
+          const { top, left, width, height } = chart.chartArea;
+          ctx.drawImage(image, 0, 0, left + width, top + height);
+        } else {
+          image.onload = () => chart.draw();
+        }
+      },
+    };
+
     this.chart = new Chart(ctx, {
       type: "bar",
+      plugins: [plugin],
       data: {
         labels: this.names,
         datasets: [
           {
             label: "population",
             data: this.populations,
+            backgroundColor: "#FFB1C1",
             borderWidth: 1,
           },
         ],
