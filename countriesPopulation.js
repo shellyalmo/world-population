@@ -15,19 +15,6 @@ class Populations {
     });
   }
   transformCities(cities) {
-    //creates a new array, doesn't update the parent array
-    this.city = cities.map((city) => {
-      //returns array of objects
-      return {
-        label: city.city,
-        //fix
-        data: city.populationCounts
-          .sort((a, b) => {
-            return Number(a.year) - Number(b.year);
-          })
-          .map((populationCount) => Number(populationCount.value)),
-      };
-    });
     //get unique years
     this.year = new Set(
       cities
@@ -39,6 +26,20 @@ class Populations {
         .flat()
     );
     this.year = Array.from(this.year).sort();
+
+    this.city = cities.map((city) => {
+      //returns array of objects
+      return {
+        label: city.city,
+        //connect each year to its correlated population to avoid displaying population for year without data
+        data: this.year.map((y) => {
+          let population = city.populationCounts.find((count) => {
+            return Number(count.year) === y;
+          });
+          return population ? Number(population.value) : null;
+        }),
+      };
+    });
   }
   /**
    *
