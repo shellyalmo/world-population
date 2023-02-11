@@ -33,4 +33,3 @@ async function graph() {
 }
 
 graph();
-//links to continent butons to go back to index html
