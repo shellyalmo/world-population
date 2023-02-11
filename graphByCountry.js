@@ -21,14 +21,15 @@ async function getCitiesPerCountry(countryName) {
     }
   );
   const data = await response.json();
-  console.log(data.data);
+
   return data.data;
 }
 async function graph() {
   const cities = await getCitiesPerCountry(countryName);
+
   //graph using population class
   const population = new Populations();
-  population.updateGraph(cities);
+  population.updateCitiesGraph(cities);
 }
 
 graph();
